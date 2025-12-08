@@ -28,3 +28,15 @@ class ContaCorrente extends Conta{
 class ContaPoupanca extends Conta{
     ContaPoupanca(super.titular,super._saldo);
 }
+
+class ContaSalario extends Conta{
+  String cnpj;
+  String empresa;
+  ContaSalario(super.titular,super._saldo,this.cnpj,this.empresa);
+
+  @override
+  void receber(double valor) {
+    super.receber(valor);
+    print("O salário da $empresa, de CNPJ $cnpj no valor de R\$$valor, foi depositado!");
+  }
+}
