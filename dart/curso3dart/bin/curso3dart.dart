@@ -18,6 +18,8 @@ void main(){
 
   contaChris.receber(500);
   contaDenize.enviar(300);
+  contaChris.enviar(4300);
+  contaDenize.imprimeSaldo();
 }
 
 
