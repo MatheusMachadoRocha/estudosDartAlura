@@ -1,4 +1,4 @@
-class Quartos {
+abstract class Quartos {
   String tipo;
   double valorDiaria;
   int numeroDiaria;

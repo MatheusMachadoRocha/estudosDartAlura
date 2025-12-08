@@ -1,4 +1,4 @@
-class Igrediente {
+abstract class Igrediente {
   String nome;
   String tipo;
 
