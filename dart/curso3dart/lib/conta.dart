@@ -1,4 +1,4 @@
-class Conta{
+abstract class Conta{
   String titular;
   double _saldo;
 
@@ -24,11 +24,11 @@ class Conta{
 class ContaCorrente extends Conta{
   double emprestimo = 300;
 
-  ContaCorrente(super.titular,super._saldo);
+  ContaCorrente(super.titular, super._saldo);
 
   @override
-  void enviar(double valor){
-    if(_saldo + emprestimo >= valor){
+  void enviar(double valor) {
+    if (_saldo + emprestimo >= valor) {
       _saldo -= valor;
       imprimeSaldo();
     }
@@ -36,11 +36,23 @@ class ContaCorrente extends Conta{
 }
 
 class ContaPoupanca extends Conta{
-    double rendimento = 0.05;
+  double rendimento = 0.05;
 
-    ContaPoupanca(super.titular,super._saldo);
+  ContaPoupanca(super.titular, super._saldo);
+  
+  void calculaRendimento() {
+    _saldo += _saldo * rendimento;
+  }
+}
 
-    void calculaRendimento(){
-      _saldo += _saldo * rendimento;
-    }
+class ContaSalario extends Conta{
+  String cnpj;
+  String empresa;
+  ContaSalario(super.titular,super._saldo,this.cnpj,this.empresa);
+
+  @override
+  void receber(double valor) {
+    super.receber(valor);
+    print("O salário da $empresa, de CNPJ $cnpj no valor de R\$$valor, foi depositado!");
+  }
 }

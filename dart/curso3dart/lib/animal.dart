@@ -1,19 +1,27 @@
-class Animal {
+abstract class Animal {
   void emitirSom(){
-    
+
   }
 }
 
-class Cachorro extends Animal{
+class Cachorro extends Animal {
   @override
-  void emitirSom(){
-    print("“O cachorro late");
+  void emitirSom() {
+    print("Latido");
+  }
+
+  void abanarRabo(){
+    print("Abanando o rabo");
   }
 }
 
-class Gato extends Animal{
+class Gato extends Animal {
   @override
-  void emitirSom(){
-    print("o gato miou");
+  void emitirSom() {
+    print("Miau");
+  }
+
+  void arranhaSofa(){
+    print("Arranhando o sofá");
   }
 }
