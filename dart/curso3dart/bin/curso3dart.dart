@@ -9,6 +9,8 @@ void main(){
   ContaSalario contaSalario = ContaSalario("jeff", 3000,"Naturalle sul","12345678000199");
   print(contaSalario.titular);
   contaSalario.imprimeSaldo();
+  ContaEmpresa contaMatheuss = ContaEmpresa("matheus", 2000);
+  ContaInvestimento contaRoberta = ContaInvestimento("roberta", 3000);
 
   //List<Conta> contas = <Conta>[contaMatheus,contaRoberta];
   //print(contaMatheus.titular);
