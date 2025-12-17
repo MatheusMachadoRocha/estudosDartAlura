@@ -1,18 +1,24 @@
+import 'dart:async';
+
 import 'package:dart_ssincronismo/api_key.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
+StreamController<String> streamController = StreamController<String>();
+
 void main() {
-  // print("Olá, mundo!");
+  StreamSubscription streamSubscription = streamController.stream.listen((String info) {
+    print(info);
+  },);
   // requestData();
   // requestDataAsync();
 
-  sendDataAsync({
-    "id": "NEW001",
-    "name": "Flutter",
-    "lastName": "Dart",
-    "balance": 5000,
-  });
+  //sendDataAsync({
+    //"id": "NEW001",
+    //"name": "Flutter",
+    //"lastName": "Dart",
+    //"balance": 5000,
+  //});
 }
  
 requestData(){
