@@ -1,3 +1,4 @@
+import 'package:dart_ssincronismo/api_key.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 
@@ -30,7 +31,7 @@ requestData(){
 Future<List<dynamic>> requestDataAsync() async { // usa o async para usar o await e dizer que a funcao e assincrona O AWAIT FALA  
     String url = "https://gist.githubusercontent.com/ricarthlima/a0eb198cb7a70696c4031e7e577de0cd/raw/356ce2c39dfd58d3d2e948d1ad87ea828544f1db/accounts.json";
     Response response = await get(Uri.parse(url)); //await espera ate que aconteca para dai proseguir com o andamento padrao
-    return json.decode(response.body)[0];
+    return json.decode(response.body);
 }
 
 sendDataAsync(Map<String, dynamic> mapAccount) async {
@@ -38,6 +39,17 @@ sendDataAsync(Map<String, dynamic> mapAccount) async {
   listAccounts.add(mapAccount);
   String content = json.encode(listAccounts);
   print(content);
-  String url = "https://api.github.com/gists/413c0aefe6c6abc464581c29029c8ace";
-  Response response = await post(Uri.parse(url), body: content);
+  String url = "https://api.github.com/gists/579418badb8f431c6bea57965603e4a9";
+  Response response = await post(Uri.parse(url),headers: {
+    "Authorization" : "Bearer $gitHubApiKey"
+  }, body: json.encode({
+    "description" : "account.json",
+    "public" : true,
+    "files" : {
+      "accounts.json" : {
+        "content" : content,
+      }
+    }
+  }),);
+  print(response.statusCode);
 }
