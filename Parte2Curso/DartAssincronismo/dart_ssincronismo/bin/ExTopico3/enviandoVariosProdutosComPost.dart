@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'package:dart_ssincronismo/api_key.dart';
+import 'package:http/http.dart' ;
 
 Future<void> sendMultipleProducts(List<Map<String, dynamic>> products, String nameList) async {
   Uri url = Uri.parse('SUA_URL_GIST_AQUI');
@@ -20,7 +21,7 @@ Future<void> sendMultipleProducts(List<Map<String, dynamic>> products, String na
     ),
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ${SEU_TOKEN_AQUI}',
+        'Authorization': 'Bearer ${gitHubApiKey}',
     },
   );
 
