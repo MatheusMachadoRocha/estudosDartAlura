@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dart_ssincronismo/models/account.dart';
 import 'package:dart_ssincronismo/services/account_service.dart';
+import 'package:uuid/uuid.dart';
 
 class AccountScreens {
   AccountService _accountService = AccountService();
