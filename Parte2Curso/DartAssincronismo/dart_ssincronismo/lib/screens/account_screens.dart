@@ -37,6 +37,21 @@ class AccountScreens {
             print("te vejo na proxima");
             break;
           }
+        case "4":
+          {
+            print("Qual o nome completo da pessoa?");
+String? name = stdin.readLineSync();
+if (name != null) {
+  print("Qual o saldo inicial da conta?");
+  String? balanceString = stdin.readLineSync();
+  if (balanceString != null &&
+      double.tryParse(balanceString) != null) {
+    await _addAccount(name, double.parse(balanceString));
+  }
+}
+// await _addExampleAccount(); removemos o exemplo
+break;
+          }
         default:
           {
             print("Não entendi");
@@ -56,4 +71,15 @@ class AccountScreens {
     Account example = Account(id: "id5", name: "jorge", lastName: "rocha", balance: 8001);
     await _accountService.addAccount(example);
   }
+
+  _addAccount(String name, double balance) async {
+  Account newAccount = Account(
+    id: Uuid().v1(),
+    name: name.split(" ").first,
+    lastName:  name.split(" ").length > 1 ? name.split(" ").last : "",
+    balance: balance,
+  );
+
+  await _accountService.addAccount(newAccount);
+}
 }
