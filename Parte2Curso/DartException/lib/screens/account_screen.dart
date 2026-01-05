@@ -1,8 +1,14 @@
 import 'dart:io';
 
+<<<<<<< HEAD
 
 import '../models/account.dart';
 import '../services/account_service.dart';
+=======
+import 'package:dart_exceptions/services/account_service.dart';
+
+import '../models/account.dart';
+>>>>>>> a45a5260260bb4e7c53854b2ca7f4220c9f2a968
 
 class AccountScreen {
   final AccountService _accountService = AccountService();
