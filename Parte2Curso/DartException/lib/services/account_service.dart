@@ -1,17 +1,10 @@
 import 'dart:async';
 
-<<<<<<< HEAD
 
 import 'dart:convert';
 import 'package:dart_exceptions/screens/api_key.dart';
 import 'package:http/http.dart';
 import '../models/account.dart';
-=======
-import 'package:dart_exceptions/api_key.dart';
-import 'package:dart_exceptions/models/account.dart';
-import 'package:http/http.dart';
-import 'dart:convert';
->>>>>>> a45a5260260bb4e7c53854b2ca7f4220c9f2a968
 
 class AccountService {
   final StreamController<String> _streamController = StreamController<String>();
@@ -51,11 +44,7 @@ class AccountService {
 
     Response response = await post(
       Uri.parse(url),
-<<<<<<< HEAD
       headers: {"Authorization": "Bearer $gitHubApiKey"},
-=======
-      headers: {"Authorization": "Bearer $githubApiKey"},
->>>>>>> a45a5260260bb4e7c53854b2ca7f4220c9f2a968
       body: json.encode({
         "description": "account.json",
         "public": true,
