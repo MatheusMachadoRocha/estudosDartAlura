@@ -8,11 +8,7 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-<<<<<<< HEAD
   http: ^1.6.0
-=======
-  http: ^1.2.2
->>>>>>> a45a5260260bb4e7c53854b2ca7f4220c9f2a968
   # path: ^1.8.0
 
 dev_dependencies:

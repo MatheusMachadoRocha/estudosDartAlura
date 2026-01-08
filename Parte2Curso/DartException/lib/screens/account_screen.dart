@@ -1,14 +1,10 @@
 import 'dart:io';
 
-<<<<<<< HEAD
+
+import 'package:http/http.dart';
 
 import '../models/account.dart';
 import '../services/account_service.dart';
-=======
-import 'package:dart_exceptions/services/account_service.dart';
-
-import '../models/account.dart';
->>>>>>> a45a5260260bb4e7c53854b2ca7f4220c9f2a968
 
 class AccountScreen {
   final AccountService _accountService = AccountService();
@@ -62,9 +58,23 @@ class AccountScreen {
   }
 
   _getAllAccounts() async {
-    List<Account> listAccounts = await _accountService.getAll();
-    print(listAccounts);
-  }
+    try {
+      List<Account> listAccounts = await _accountService.getAll();
+      print(listAccounts);
+    } on ClientException catch (clientException) { //captura o err
+      print("Não foi possível alcançar o servidor.");
+      print("Tente novamente mais tarde.");
+      print(clientException.message); // mostra a mensagem
+      print(clientException.uri);
+    } on Exception {
+      print("Não consegui recuperar os dados da conta.");
+      print("Tente novamente mais tarde.");
+    } finally {
+      print("${DateTime.now()} | Ocorreu uma tentativa de consulta.");
+      // Aqui vai rodar antes de fechar.
+    }
+    // Aqui não vai rodar antes de fechar.
+  } 
 
   _addExampleAccount() async {
     Account example = Account(
